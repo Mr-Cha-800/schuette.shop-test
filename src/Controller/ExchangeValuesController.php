@@ -25,11 +25,20 @@ class ExchangeValuesController extends AbstractController
     /**
      * @Route("/api/exchange/all/values", name="app_exchange_values")
      */
-    public function getAllHistoryRows(): JsonResponse
+    public function getAllHistoryRows(Request $request): JsonResponse
     {
-        
+        // setting the attribute and the default value
+        $page = $request->query->get('page', 1);
+        $limit = $request->query->get('limit', 10);
+        $sort = $request->query->get('sort', 'id');
+        $order = $request->query->get('order', 'asc');
+
         $historyRepository = $this->getDoctrine()->getRepository(DevelopersHistory::class);
-        $historyRecords = $historyRepository->findAll();
+        
+        // getting everything and using the parameters
+        $historyRecords = $historyRepository->findBy([], [$sort => $order], $limit, ($page - 1) * $limit);
+
+        // $historyRecords = $historyRepository->findAll();
 
         $response = [];
         foreach ($historyRecords as $record) {
