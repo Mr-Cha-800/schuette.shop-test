@@ -1,0 +1,8 @@
+api_controller_get:
+    path: /api/getRestJsonRequest
+    controller: App\Controller\JsonRestController::getRestJsonRequest
+    methods: [GET]
+api_controller_post:
+    path: /api/postRestJsonRequest
+    controller: App\Controller\JsonRestController::postRestJsonRequest
+    methods: [POST]

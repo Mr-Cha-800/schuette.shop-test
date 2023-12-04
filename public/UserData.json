@@ -1,0 +1,19 @@
+{
+    "developers": [
+        {
+            "id": 1, 
+            "name": "Chaker", 
+            "favorite_framework": "Laravel"
+        },
+        {
+            "id": 2, 
+            "name": "Chaker number 2", 
+            "favorite_framework": "Symfony"
+        },
+        {
+            "id": 3, 
+            "name": "Chaker number 3", 
+            "favorite_framework": "Symfony"
+        }
+    ]
+}
