@@ -22,6 +22,30 @@ class ExchangeValuesController extends AbstractController
         ]);
     }
 
+    /**
+     * @Route("/api/exchange/all/values", name="app_exchange_values")
+     */
+    public function getAllHistoryRows(): JsonResponse
+    {
+        
+        $historyRepository = $this->getDoctrine()->getRepository(DevelopersHistory::class);
+        $historyRecords = $historyRepository->findAll();
+
+        $response = [];
+        foreach ($historyRecords as $record) {
+            $response[] = [
+                'id' => $record->getId(),
+                'first_in' => $record->getFirstIn(),
+                'second_in' => $record->getSecondIn(),
+                'first_out' => $record->getFirstOut(),
+                'second_out' => $record->getSecondOut(),
+                'created_at' => $record->getCreatedAt()->format('Y-m-d H:i:s'),
+                'updated_at' => $record->getUpdatedAt()->format('Y-m-d H:i:s'),
+            ];
+        }
+
+        return new JsonResponse($response);
+    }
     public function postExchangeValuesRequest(Request $request, EntityManagerInterface $entityManager): JsonResponse
     {
         // Get JSON data from the request

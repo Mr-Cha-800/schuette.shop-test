@@ -12,3 +12,8 @@ api_exchange_value_post:
     path: /api/exchange/values
     controller: App\Controller\ExchangeValuesController::postExchangeValuesRequest
     methods: [POST]
+
+api_exchange_value_get_history_all:
+    path: /api/exchange/all/values
+    controller: App\Controller\ExchangeValuesController::getAllHistoryRows
+    methods: [GET]

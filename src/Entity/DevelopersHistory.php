@@ -72,6 +72,10 @@ class DevelopersHistory
         return $this;
     }
 
+    public function getFirstOut(): ?int
+    {
+        return $this->firstOut;
+    }
     public function getSecondIn(): ?int
     {
         return $this->secondIn;
@@ -82,6 +86,10 @@ class DevelopersHistory
         $this->secondOut = $secondOut;
 
         return $this;
+    }
+    public function getSecondOut(): ?int
+    {
+        return $this->secondOut;
     }
     public function setSecondIn(int $secondIn): self
     {
@@ -94,6 +102,10 @@ class DevelopersHistory
     public function getUpdatedAt(): ?\DateTimeInterface
     {
         return $this->updatedAt;
+    }
+    public function getCreatedAt(): ?\DateTimeInterface
+    {
+        return $this->createdAt;
     }
 
     public function setCreatedAt(\DateTimeInterface $createdAt): self
